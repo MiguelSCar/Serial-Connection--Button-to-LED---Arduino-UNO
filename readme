@@ -1,0 +1,24 @@
+1. Descrição
+Projeto que demonstra a comunicação serial entre duas placas Arduino UNO. Ao pressionar o botão de uma placa, o sinal é enviado para a outra, acendendo seu LED correspondente.
+
+2. Materiais
+  2 Arduinos UNO;
+  2 botões;
+  2 LEDs;
+  2 resistores;
+  Jumpers.
+
+3. Conexões
+  Botões: pino digital 6 de cada Arduino.
+  LEDs: pino A0 de cada Arduino.
+  TX de uma placa → RX da outra.
+  RX de uma placa → TX da outra.
+  GND das duas placas interligados.
+
+4. Funcionamento
+Os botões são configurados como entradas (INPUT_PULLUP) e os LEDs como saídas (OUTPUT). A comunicação serial é inicializada com velocidade de 9600 bauds.
+
+Cada placa envia o estado do seu botão por meio de Serial.write() e recebe os dados da outra utilizando Serial.available() e Serial.read(), controlando o LED de acordo com a informação recebida.
+
+5. Resultado Esperado
+Ao pressionar um botão, o LED da outra placa deve acender, demonstrando a transmissão e recepção de dados entre os Arduinos.
